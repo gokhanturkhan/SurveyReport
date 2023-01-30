@@ -1,0 +1,46 @@
+﻿@using ENT.Concrete;
+@model List<User>
+
+<div>
+    <table class="table">
+        <thead class="thead-dark bg-dark text-white">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Kullanıcı Adı</th>
+                <th scope="col">Üye Olduğu Tarih</th>
+                <th scope="col">Cv Ekle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.UserName</td>
+                    <td>@item.CreationDate</td>
+                    <td>
+                        <input type="file">
+                        <a href="#" class="btn btn-primary">CV Ekle</a>
+                    </td>
+                </tr>
+            }       
+        </tbody>
+    </table>
+
+</div>
+@section Scripts{
+        <script>
+        let AnsweredQuestion = '@(Html.Raw(ViewBag.AnsweredMessage))';
+
+        if (AnsweredQuestion != null && AnsweredQuestion != '') {
+            Toastify({
+                text: AnsweredQuestion,
+                className: "info",
+                style: {
+                    background: "linear-gradient(to right, #288f9f, #25a289)",
+                }
+            }).showToast();
+        }
+
+    </script>
+}

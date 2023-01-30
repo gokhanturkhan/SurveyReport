@@ -1,0 +1,26 @@
+﻿@model QuestionPageModel
+
+<div class="container  h-100 justify-content-center">
+    <div class="row">
+        <div>
+            <h1>@Model.Question.QuestionText</h1>
+        </div>
+        <hr />
+        <form method="post" action="@Url.Action("SaveAnswers","Question")">
+
+            <input type="hidden" value="@Model.Question.Id" name="QuestionId" />
+
+            @for (int i = 0; i < Model.FixedAnswers.Count; i++)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="FixedAnswers" value="@Model.FixedAnswers[i].AnswerText" id="FixedAnswer@(i)" />
+                    <label class="form-check-label" for="FixedAnswer@(i)">@Model.FixedAnswers[i].AnswerText</label>
+                </div>
+            }
+
+
+            <button type="submit" class="btn btn-primary">Cevapla</button>
+        </form>
+
+    </div>
+</div>
