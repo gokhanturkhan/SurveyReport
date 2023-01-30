@@ -1,6 +1,7 @@
 ﻿using BLL.Abstract;
 using DAL.Abstract;
 using ENT.Concrete;
+using ENT.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace BLL.Concrete
         {
             _answerDal = answerDal;
             _userDal = userDal;
+        }
+
+        public List<QuestionAndAnswerDto> GetQuestionAndAnswers(int UserId)
+        {
+            return _answerDal.questionAndAnswerDtos(UserId).ToList();
         }
 
         public Dictionary<bool, string> SaveAnswers(int QuestionId, List<string> answers, string UserId)

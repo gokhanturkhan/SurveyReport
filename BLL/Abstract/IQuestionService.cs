@@ -9,6 +9,7 @@ namespace BLL.Abstract
 {
     public interface IQuestionService
     {
+        List<Question> GetAll();
         Question GetById(int id);
     }
 }

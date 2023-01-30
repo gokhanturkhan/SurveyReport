@@ -17,6 +17,12 @@ namespace BLL.Concrete
         {
             _questionDal= questionDal;  
         }
+
+        public List<Question> GetAll()
+        {
+            return _questionDal.GetAll();
+        }
+
         public Question GetById(int id)
         {
             return _questionDal.Get(a => a.Id == id);

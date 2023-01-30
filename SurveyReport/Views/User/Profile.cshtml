@@ -1,0 +1,17 @@
+﻿@model QuestionAndUserModel
+
+<b>Kullanıcı Adı:</b> @Model.User.UserName
+<br />
+<b>Üye Olma Tarihi:</b> @Model.User.CreationDate
+
+<div>
+    @foreach (var item in Model.Questions)
+    {
+        <h3>@item.QuestionText</h3>
+        @foreach (var answer in Model.QuestionAndAnswerDtos.Where(a => a.QuestId == item.Id))
+        {
+            <p>@answer.AnswerText</p>
+        }
+        <hr />
+    }
+</div>

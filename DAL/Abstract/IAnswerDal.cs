@@ -1,4 +1,5 @@
 ﻿using ENT.Concrete;
+using ENT.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace DAL.Abstract
 {
     public interface IAnswerDal : IEntityRepository<Answer>
     {
+        List<QuestionAndAnswerDto> questionAndAnswerDtos(int UserId);
     }
 }
